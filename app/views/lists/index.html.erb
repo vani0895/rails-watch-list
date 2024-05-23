@@ -1,0 +1,27 @@
+<div class="container mt-3">
+  <div class="row">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Salle_gaumont.jpg/1024px-Salle_gaumont.jpg);">
+  <div class="container">
+         <h1 class="page-title">My lists</h1>
+  </div>
+  <div class="flat-card-content">
+    <div class="flat-card-title">
+      <div class="row">
+        <% @lists.each do |list| %>
+          <div class="col-12 col-md-6 col-lg-4 flat-card-item">
+            <div class="card flex align-items-center">
+              <%= link_to list.name, list, class: "btn btn-flat" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="create-list-btn">
+      <%= link_to "Create a list", new_list_path, class: "btn btn-gradient" %>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+

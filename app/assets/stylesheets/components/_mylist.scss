@@ -1,0 +1,55 @@
+/* Custom CSS */
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.flat-card-item {
+  margin-bottom: 15px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-flat {
+  width: 100%;
+  text-align: center;
+  color: #007bff;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-flat:hover {
+  background-color: #f0f0f0;
+  color: #0056b3;
+}
+
+.btn-gradient {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(45deg, #5b0fb3, #1f67e2);
+  transform: scale(1.05);
+}
+
+.create-list-btn {
+  text-align: center;
+  margin-top: 20px;
+}
