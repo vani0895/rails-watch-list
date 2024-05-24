@@ -7,12 +7,15 @@
           <div class="form-group">
             <%= f.input :name, label: "List Name", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
           </div>
+          <div class="form-group">
+            <%= f.input :photo, as: :file%>
+          </div>
           <div class="text-center">
             <%= f.submit "Submit List", class: "btn btn-primary mt-3" %>
           </div>
         <% end %>
         <div class="text-center mt-3">
-          <%= link_to "Back to lists", lists_path, class: "btn btn-secondary" %>
+          <%= link_to "Back to lists", root_path, class: "btn btn-secondary" %>
         </div>
       </div>
     </div>

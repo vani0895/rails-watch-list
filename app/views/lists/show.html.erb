@@ -1,31 +1,34 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card p-4">
-        <h2 class="mb-4 text-center"><%= @list.name %></h2>
-        <div class="list-group">
-          <% @list.movies.each do |movie| %>
-            <div class="list-group-item mb-3">
-              <div class="d-flex align-items-start">
-                <%= image_tag movie.poster_url, alt: "Movie poster", class: "me-3", style: "width: 100px;" %>
-                <div>
-                  <h5 class="mb-1"><%= movie.title %></h5>
-                  <p class="mb-1"><%= movie.overview %></p>
-                  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-                  <div>
-                    <h5>The comment</h5>
-                    <p><small><%= bookmark.comment %></small></p>
-                  </div>
-                  <%= link_to "Delete", bookmark_path(bookmark), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <div class="text-center">
+       <% if @list.photo.present? %>
+        <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+        <h2 class="page-title text-black"><%= @list.name %></h2>
+      </div>
+      <div class="list-group mt-4">
+        <% @list.movies.each do |movie| %>
+          <div class="list-group-item mb-3 p-3 shadow-sm">
+            <div class="d-flex align-items-start">
+              <%= image_tag movie.poster_url, alt: "Movie poster", class: "me-3 rounded", style: "width: 100px;" %>
+              <div class="flex-grow-1">
+                <h5 class="mb-1"><%= movie.title %></h5>
+                <p class="mb-1 text-muted"><%= movie.overview %></p>
+                <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+                <div class="mt-2">
+                  <h6>The comment</h6>
+                  <p><small class="text-muted"><%= bookmark.comment %></small></p>
                 </div>
+                <%= link_to "Delete", bookmark_path(bookmark), class: "btn btn-danger btn-sm mt-2", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </div>
             </div>
-          <% end %>
-        </div>
-        <div class="mt-4">
-          <%= link_to "Back to lists", lists_path, class: "btn btn-secondary me-2" %>
-          <%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: "btn btn-primary" %>
-        </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="mt-4 text-center">
+        <%= link_to "Back to lists", root_path, class: "btn btn-secondary me-2" %>
+        <%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
